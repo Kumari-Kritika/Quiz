@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Quiz App</h1>
+  <form action="/submit" method="POST">
+    <% questions.forEach((q, index) => { %>
+      <div class="question">
+        <h3><%= q.question %></h3>
+        <% q.options.forEach(option => { %>
+          <label>
+            <input type="radio" name="q<%= index + 1 %>" value="<%= option %>">
+            <%= option %>
+          </label><br>
+        <% }); %>
+      </div>
+    <% }); %>
+    <button type="submit">Submit</button>
+  </form>
+  <script src="/script.js"></script>
+
+</body>
+</html>
+
+
